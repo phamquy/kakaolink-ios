@@ -11,6 +11,7 @@
 
 @implementation ViewController
 
+//------------------------------------------------------------------------------
 -(IBAction)kakaoLink:(id)sender {
     if (![KakaoLinkCenter canOpenKakaoLink]) {
         return;
@@ -21,15 +22,17 @@
     NSDictionary *metaInfoAndroid = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"android", @"os",
                                      @"phone", @"devicetype",
-                                     @"market://details?id=com.kakao.talk", @"installurl",
-                                     @"example://example", @"executeurl",
+                                     //@"market1://details?id=com.kakao.talk", @"installurl",
+                                     @"http://www.imagnet.com/image/detail/99983", @"installurl",
+                                     @"imagnet://image/detail/99983", @"executeurl",
                                      nil];
     
     NSDictionary *metaInfoIOS = [NSDictionary dictionaryWithObjectsAndKeys:
                                  @"ios", @"os",
                                  @"phone", @"devicetype",
-                                 @"http://itunes.apple.com/app/id362057947?mt=8", @"installurl", 
-                                 @"example://example", @"executeurl",
+                                 //@"http://itunes.apple.com/app/id362057947?mt=8", @"installurl",
+                                 @"http://www.imagnet.com/image/detail/99983", @"installurl",
+                                 @"imagnet://image/detail/99983", @"executeurl",
                                  nil];
     
     [metaInfoArray addObject:metaInfoAndroid];
@@ -41,8 +44,15 @@
                                       appVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
                                          appName:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
                                    metaInfoArray:metaInfoArray];
+    
+//    [KakaoLinkCenter openKakaoLinkWithURL:@"http://www.imagnet.com"
+//                               appVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+//                              appBundleID:[[NSBundle mainBundle] bundleIdentifier]
+//                                  appName:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
+//                                  message:@"Hey try this"];
 }
 
+//------------------------------------------------------------------------------
 - (IBAction)sendTextOnlyStorylinkAction:(id)sender
 {
 	if (![KakaoLinkCenter canOpenStoryLink]) {
@@ -56,6 +66,13 @@
 								   urlInfo:nil];
 }
 
+
+
+
+
+
+
+//------------------------------------------------------------------------------
 - (IBAction)sendStorylinkHasCorrectUrlInfoAction:(id)sender
 {
 	if (![KakaoLinkCenter canOpenStoryLink]) {
@@ -76,6 +93,8 @@
 								   urlInfo:urlInfoDict];
 }
 
+
+//------------------------------------------------------------------------------
 - (IBAction)sendStorylinkWithoutUrlInfoAction:(id)sender
 {
 	if (![KakaoLinkCenter canOpenStoryLink]) {
@@ -89,6 +108,8 @@
 								   urlInfo:nil];
 }
 
+
+//------------------------------------------------------------------------------
 - (IBAction)sendStorylinkHasIncorrectUrlInfoAction:(id)sender
 {
 	if (![KakaoLinkCenter canOpenStoryLink]) {
