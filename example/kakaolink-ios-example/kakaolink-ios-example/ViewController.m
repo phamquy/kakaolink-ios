@@ -24,7 +24,7 @@
                                      @"phone", @"devicetype",
                                      //@"market1://details?id=com.kakao.talk", @"installurl",
                                      @"http://www.imagnet.com/image/detail/99983", @"installurl",
-                                     @"imagnet://image/detail/99983", @"executeurl",
+                                     @"imagnet://www.imagnet.com/image/detail/99983", @"executeurl",
                                      nil];
     
     NSDictionary *metaInfoIOS = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -39,7 +39,7 @@
     [metaInfoArray addObject:metaInfoIOS];
     
     [KakaoLinkCenter openKakaoAppLinkWithMessage:@"First KakaoLink Message"
-                                             URL:@"http://link.kakao.com/?test-ios-app"
+                                             URL:@"http://www.imagnet.com/image/detail/99983"
                                      appBundleID:[[NSBundle mainBundle] bundleIdentifier]
                                       appVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
                                          appName:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
@@ -50,7 +50,39 @@
 //                              appBundleID:[[NSBundle mainBundle] bundleIdentifier]
 //                                  appName:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
 //                                  message:@"Hey try this"];
+
+
+//    if (![KakaoLinkCenter canOpenKakaoLink]) {
+//        return;
+//    }
+//    
+//    NSMutableArray *metaInfoArray = [NSMutableArray array];
+//    
+//    NSDictionary *metaInfoAndroid = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                     @"android", @"os",
+//                                     @"phone", @"devicetype",
+//                                     @"market://details?id=com.kakao.talk", @"installurl",
+//                                     @"example://example", @"executeurl",
+//                                     nil];
+//    
+//    NSDictionary *metaInfoIOS = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                 @"ios", @"os",
+//                                 @"phone", @"devicetype",
+//                                 @"http://itunes.apple.com/app/id362057947?mt=8", @"installurl",
+//                                 @"example://example", @"executeurl",
+//                                 nil];
+//    
+//    [metaInfoArray addObject:metaInfoAndroid];
+//    [metaInfoArray addObject:metaInfoIOS];
+//    
+//    [KakaoLinkCenter openKakaoAppLinkWithMessage:@"First KakaoLink Message"
+//                                             URL:@"http://link.kakao.com/?test-ios-app"
+//                                     appBundleID:[[NSBundle mainBundle] bundleIdentifier]
+//                                      appVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+//                                         appName:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]
+//                                   metaInfoArray:metaInfoArray];
 }
+
 
 //------------------------------------------------------------------------------
 - (IBAction)sendTextOnlyStorylinkAction:(id)sender
